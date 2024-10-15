@@ -67,8 +67,8 @@ public class SignUp extends HttpServlet {
 
         Boolean isNameValid = username != null && username.trim().length() >= 2 && Pattern.matches("^[ㄱ-ㅎ가-힣a-zA-Z]*$", username);
         Boolean isTelValid = tel != null && Pattern.matches("^[0-9]{11}$", tel);
-        Boolean isPasswordValid = password != null && password.length() >= 8;
-        Boolean isPasswordCheckValid = passwordCheck != null && password.equals(password);
+        Boolean isPasswordValid = password != null && password.trim().length() >= 8;
+        Boolean isPasswordCheckValid = passwordCheck != null && passwordCheck.equals(password);
 
         if(isNameValid && isTelValid && isPasswordValid && isPasswordCheckValid) {
             out.print("<h1>환영 합니다 " + username + "님 </h1>");

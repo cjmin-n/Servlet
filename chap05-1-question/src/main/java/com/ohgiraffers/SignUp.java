@@ -29,10 +29,9 @@ public class SignUp extends HttpServlet {
         PrintWriter out = resp.getWriter();
 
 
-        if(username != null && username.trim().length() >= 2) {
+        /*if(username != null && username.trim().length() >= 2) {
             if(Pattern.matches("^[ㄱ-ㅎ가-힣a-zA-Z]*$", username)){
                 if(tel != null && tel.length() == 11){
-//                    if(Pattern.matches("^01(?:0|1|[6-9])(?:\\\\d{3}|\\\\d{4})\\\\d{4}$", tel)){
                     if(Pattern.matches("^[0-9]{11}$", tel)){
 //                    if(Pattern.matches("^[0-9]*$", tel)){
                         if(password != null && password.length() >= 8){
@@ -60,11 +59,24 @@ public class SignUp extends HttpServlet {
         }
 
 
-        out.close();
+        out.close();*/
         
         /*
         * 조건문을 Boolean 형식으로 다 바꿔서 && 로 한번에 유효성 검사
         * */
+
+        Boolean isNameValid = username != null && username.trim().length() >= 2 && Pattern.matches("^[ㄱ-ㅎ가-힣a-zA-Z]*$", username);
+        Boolean isTelValid = tel != null && Pattern.matches("^[0-9]{11}$", tel);
+        Boolean isPasswordValid = password != null && password.length() >= 8;
+        Boolean isPasswordCheckValid = passwordCheck != null && password.equals(password);
+
+        if(isNameValid && isTelValid && isPasswordValid && isPasswordCheckValid) {
+            out.print("<h1>환영 합니다 " + username + "님 </h1>");
+        }else {
+            out.print("<h1>입력 정보를 확인해주세요.</h1>");
+        }
+
+        out.close();
 
     }
 }

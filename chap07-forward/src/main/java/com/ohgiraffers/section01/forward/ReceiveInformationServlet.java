@@ -25,7 +25,7 @@ public class ReceiveInformationServlet extends HttpServlet {
         req.setAttribute("userId", userId);
 
         // print 라는 경로로 요청을 넘기기 위한 객체 생성
-        // 이 경로는 서블리이나 JSP 모두 가능
+        // 이 경로는 서블릿이나 JSP 모두 가능
         RequestDispatcher rd = req.getRequestDispatcher("print");
 
         rd.forward(req, resp);

@@ -24,7 +24,7 @@ public class EncodingFilter implements Filter {
         HttpServletResponse hresponse = (HttpServletResponse) servletResponse;
         hresponse.setContentType(encodingType);
 
-        filterChain.doFilter(servletRequest, servletResponse);
+        filterChain.doFilter(servletRequest, hresponse);
 
     }
 

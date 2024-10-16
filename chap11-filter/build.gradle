@@ -26,6 +26,8 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    implementation 'org.springframework.security:spring-security-crypto:5.8.9'
+    implementation 'commons-logging:commons-logging:1.2'
 }
 
 test {

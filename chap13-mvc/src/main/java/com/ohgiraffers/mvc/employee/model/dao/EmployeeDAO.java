@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import static com.ohgiraffers.mvc.common.jdbc.JDBCTemplate.close;
@@ -61,12 +62,12 @@ public class EmployeeDAO {
         return selectEmp;
     }
 
-    public ArrayList<EmployeeDTO> selectAllEmp(Connection con) {
+    public List<EmployeeDTO> selectAllEmp(Connection con) {
 
         PreparedStatement pstmt = null;
         ResultSet rset = null;
 
-        ArrayList<EmployeeDTO> employeeList = null;
+        List<EmployeeDTO> employeeList = null;
         EmployeeDTO selectEmp = null;
 
         String query = prop.getProperty("selectAllEmp");
@@ -96,7 +97,6 @@ public class EmployeeDAO {
                 selectEmp.setEntYn(rset.getString("ENT_YN"));;
                 employeeList.add(selectEmp);
             }
-            System.out.println(employeeList);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

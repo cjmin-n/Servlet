@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet("/employee/list")
 public class SelectAllEmpServlet extends HttpServlet {
@@ -19,7 +19,7 @@ public class SelectAllEmpServlet extends HttpServlet {
 
 
         EmployeeService employeeService = new EmployeeService();
-        ArrayList<EmployeeDTO> employeeList = employeeService.selectAllEmp();
+        List<EmployeeDTO> employeeList = employeeService.selectAllEmp();
 
 
         String path = "";

@@ -31,6 +31,13 @@ public class ResponseHeaderPrintServlet extends HttpServlet {
         while(iter.hasNext()) {
             String headerName = iter.next();
             System.out.println(headerName + " : " + resp.getHeader(headerName));
+            /*
+            Content-Type : text/html;charset=UTF-8
+            Content-Length : 22
+            Date : Thu, 17 Oct 2024 08:41:39 GMT
+            Keep-Alive : timeout=20
+            Connection : keep-alive
+            * */
         }
     }
 }

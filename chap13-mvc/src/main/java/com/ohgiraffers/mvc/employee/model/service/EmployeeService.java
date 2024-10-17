@@ -4,7 +4,7 @@ import com.ohgiraffers.mvc.employee.model.dao.EmployeeDAO;
 import com.ohgiraffers.mvc.employee.model.dto.EmployeeDTO;
 
 import java.sql.Connection;
-import java.util.ArrayList;
+import java.util.List;
 
 import static com.ohgiraffers.mvc.common.jdbc.JDBCTemplate.close;
 import static com.ohgiraffers.mvc.common.jdbc.JDBCTemplate.getConnection;
@@ -27,10 +27,10 @@ public class EmployeeService {
     }
 
 
-    public ArrayList<EmployeeDTO> selectAllEmp() {
+    public List<EmployeeDTO> selectAllEmp() {
         Connection con = getConnection();
 
-        ArrayList<EmployeeDTO> employeeList = empDAO.selectAllEmp(con);
+        List<EmployeeDTO> employeeList = empDAO.selectAllEmp(con);
 
         close(con);
         return employeeList;

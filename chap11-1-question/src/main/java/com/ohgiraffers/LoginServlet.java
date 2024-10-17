@@ -3,10 +3,7 @@ package com.ohgiraffers;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.io.IOException;
@@ -48,9 +45,16 @@ public class LoginServlet extends HttpServlet {
         }
 
 
+
+
         if(isIdValid && isPasswordValid){
             // 아이디 패스워드 둘다 같으면 main으로 리다이렉트(mainServlet으로)
+            /*Cookie loginStatus = new Cookie("loginStatus", String.valueOf(isIdValid && isPasswordValid));
+            loginStatus.setMaxAge(60 * 60 * 24);
+            resp.addCookie(loginStatus);*/
+
             resp.sendRedirect("main");
+
         }else if(!isIdValid || !isPasswordValid){
             // 요청에 "errorMessage"이름의 attribute로 저장
             req.setAttribute("errorMessage", "id나 비밀번호가 다릅니다.");
@@ -67,6 +71,11 @@ public class LoginServlet extends HttpServlet {
         StringBuilder page = new StringBuilder();
         // 요청에 저장해놨던 "errorMessage" 꺼내오기
         String errorMessage = (String)req.getAttribute("errorMessage");
+        if(errorMessage == null ){
+            errorMessage = "";
+        }else {
+            errorMessage = (String)req.getAttribute("errorMessage");
+        }
 
         page.append("<html>\n")
             .append("<head>\n")

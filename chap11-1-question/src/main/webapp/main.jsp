@@ -6,8 +6,18 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    HttpSession httpSession = request.getSession();
+    String id = (String)httpSession.getAttribute("userId");
+    String pwd = (String)httpSession.getAttribute("password");
 
-<% String id = (String)request.getAttribute("userId"); %>
+    if(id == null || pwd == null) {
+        response.sendRedirect("login.jsp");
+
+    }
+%>
+
+
 <html>
 <head>
     <title>결과</title>

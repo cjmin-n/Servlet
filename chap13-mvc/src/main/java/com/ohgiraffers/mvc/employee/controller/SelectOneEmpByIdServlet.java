@@ -16,13 +16,13 @@ public class SelectOneEmpByIdServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String empId = req.getParameter("EmpId");
+        String empId = req.getParameter("empId");
 
         System.out.println("empId = " + empId);
 
         // 사번을 이용해 사원 정보를 조회하는 비즈니스 로직을 호출
         EmployeeService empService = new EmployeeService();
-        EmployeeDTO selectEmp = empService.selectOneEmpByID(empId);
+        EmployeeDTO selectEmp = empService.selectOneEmpById(empId);
 
         System.out.println("selectEmp = " + selectEmp);
 

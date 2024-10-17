@@ -16,7 +16,7 @@ public class SelectOneEmpByIdServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String empId = req.getParameter("empId");
+        int empId = Integer.parseInt(req.getParameter("empId"));
 
         System.out.println("empId = " + empId);
 

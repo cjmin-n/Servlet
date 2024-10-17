@@ -11,4 +11,11 @@
           FROM EMPLOYEE
          WHERE EMP_ID = ?
     </entry>
+
+    <entry key="selectAllEmp">
+        SELECT
+            *
+          FROM EMPLOYEE
+         WHERE ENT_YN = 'N';
+    </entry>
 </properties>

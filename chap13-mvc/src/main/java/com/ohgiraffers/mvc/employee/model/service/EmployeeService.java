@@ -6,8 +6,7 @@ import com.ohgiraffers.mvc.employee.model.dto.EmployeeDTO;
 import java.sql.Connection;
 import java.util.List;
 
-import static com.ohgiraffers.mvc.common.jdbc.JDBCTemplate.close;
-import static com.ohgiraffers.mvc.common.jdbc.JDBCTemplate.getConnection;
+import static com.ohgiraffers.mvc.common.jdbc.JDBCTemplate.*;
 
 public class EmployeeService {
 
@@ -50,6 +49,34 @@ public class EmployeeService {
 
     public int insertEmp(EmployeeDTO emp) {
 
+        Connection con = getConnection();
 
+        int result = empDAO.insertEmp(con, emp);
+
+        if(result > 0){
+            commit(con);
+        }else {
+            rollback(con);
+        }
+
+        close(con);
+
+        return result;
+    }
+
+    public int updateEmp(EmployeeDTO emp) {
+
+        Connection con = getConnection();
+        int result = empDAO.updateEmp(con, emp);
+
+        if(result > 0){
+            commit(con);
+        }else {
+            rollback(con);
+        }
+
+        close(con);
+
+        return result;
     }
 }

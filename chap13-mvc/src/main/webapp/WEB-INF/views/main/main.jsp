@@ -69,5 +69,14 @@
         입사일 : <input type="date" name="hireDate"><br>
         <button type="submit">등록하기</button>
     </form>
+
+
+    <h3>Employee 테이블에서 직원 퇴사 처리 /employee/update</h3>
+    <form action="employee/update" method="post">
+        사번 : <input type="text" name="empId"><br/>
+        퇴사일 : <input type="date" name="entDate"><br/>
+        <button type="submit">직원 퇴사</button>
+    </form>
+
 </body>
 </html>

@@ -18,4 +18,10 @@
           FROM EMPLOYEE
          WHERE ENT_YN = 'N';
     </entry>
+
+    <entry key="selectNewEmpId">
+        SELECT
+            (MAX(EMP_ID)+1) AS EMP_ID
+          FROM EMPLOYEE;
+    </entry>
 </properties>

@@ -35,4 +35,21 @@ public class EmployeeService {
         close(con);
         return employeeList;
     }
+
+    public int selectNewEmpId() {
+        
+        // AUTO_INCREMENT 가 걸려 있는 경우는 필요 없지만, 제일 끝 번호를 추적해 직접 값을 넣어주는 메소드
+        Connection con = getConnection();
+
+        int newEmpId = empDAO.selectNewEmpId(con);
+
+        close(con);
+
+        return newEmpId;
+    }
+
+    public int insertEmp(EmployeeDTO emp) {
+
+
+    }
 }

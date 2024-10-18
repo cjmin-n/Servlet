@@ -107,4 +107,31 @@ public class EmployeeDAO {
 
         return employeeList;
     }
+
+
+    public int selectNewEmpId(Connection con) {
+
+        PreparedStatement pstmt = null;
+        ResultSet rset = null;
+
+        int newEmpId = 0;
+
+        String query = prop.getProperty("selectNewEmpId");
+
+        try {
+            pstmt = con.prepareStatement(query);
+            rset = pstmt.executeQuery();
+
+            if(rset.next()) {
+                newEmpId = rset.getInt("EMP_ID");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            close(pstmt);
+            close(rset);
+        }
+
+        return newEmpId;
+    }
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="selectId">
+        SELECT (MAX(ID)+1) AS ID
+          FROM TBL_BOARD;
+    </entry>
+
+    <entry key="insertItem">
+        INSERT INTO TBL_BOARD
+        VALUES
+            (?, ?, ?);
+    </entry>
+
+    <entry key="selectAll">
+        SELECT * FROM TBL_BOARD;
+    </entry>
+
+    <entry key="selectContents">
+        SELECT
+            *
+          FROM TBL_BOARD
+         WHERE ID = ?;
+    </entry>
+
+    <entry key="updateContents">
+        UPDATE TBL_BOARD
+           SET
+            SUBJECT = ?,
+            CONTENT = ?
+         WHERE ID = ?;
+    </entry>
+
+    <entry key="deleteItem">
+        DELETE FROM TBL_BOARD
+              WHERE ID = ?;
+    </entry>
+
+    <entry key="updateId">
+        UPDATE TBL_BOARD
+            SET  ID = ?
+          WHERE  ID = ?;
+    </entry>
+</properties>

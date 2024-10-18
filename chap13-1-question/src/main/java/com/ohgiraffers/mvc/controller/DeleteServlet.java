@@ -39,13 +39,14 @@ public class DeleteServlet extends HttpServlet {
         }
 
         System.out.println(resultList);
+        for(Integer i : resultList){
+            if(i > 0){
+                System.out.println("아이디 변경 성공");
+            }else {
+                System.out.println("아이디 변경 실패 ㅜ");
+            }
+        }
 
-      /*  if(result2 > 0){
-            System.out.println("아이디 업데이트 성공 ~");
-        }else {
-            System.out.println("아이디 업데이트 실패ㅜ");
-        }*/
-//        int result2 = boardService.updateId(id);
 
         String path = "";
         if(result > 0) {

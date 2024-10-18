@@ -9,36 +9,30 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.sql.Date;
 
-@WebServlet("/employee/update")
-public class UpdateEmpServlet extends HttpServlet {
+@WebServlet("/employee/delete")
+public class deleteEmpServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         int empId = Integer.parseInt(req.getParameter("empId"));
-        Date entDate = Date.valueOf(req.getParameter("entDate"));
 
-        EmployeeDTO emp = new EmployeeDTO();
-        emp.setEmpId(empId);
-        emp.setEntDate(entDate);
+        /*EmployeeDTO emp = new EmployeeDTO();
+        emp.setEmpId(empId);*/
 
         EmployeeService employeeService = new EmployeeService();
-        int result = employeeService.updateEmp(emp);
+        int result = employeeService.deleteEmp(empId);
 
         String path = "";
-
         if(result > 0){
             path = "/WEB-INF/views/common/successPage.jsp";
-            req.setAttribute("successCode", "updateEmp");
-
+            req.setAttribute("successCode", "deleteEmp");
         }else {
             path = "/WEB-INF/views/common/errorPage.jsp";
-            req.setAttribute("message", "직원 정보 수정 실패 !");
+            req.setAttribute("message", "직원 정보 삭제 실패 !");
         }
 
         req.getRequestDispatcher(path).forward(req, resp);
-
     }
 }

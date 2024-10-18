@@ -79,4 +79,20 @@ public class EmployeeService {
 
         return result;
     }
+
+    public int deleteEmp(int empId) {
+
+        Connection con = getConnection();
+        int result = empDAO.deleteEmp(con, empId);
+
+        if(result > 0){
+            commit(con);
+        }else {
+            rollback(con);
+        }
+
+        close(con);
+
+        return result;
+    }
 }

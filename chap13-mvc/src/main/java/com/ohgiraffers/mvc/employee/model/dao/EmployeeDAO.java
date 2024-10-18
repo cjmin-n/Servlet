@@ -191,4 +191,26 @@ public class EmployeeDAO {
 
         return result;
     }
+
+    public int deleteEmp(Connection con, int empId) {
+
+        PreparedStatement pstmt = null;
+        int result = 0;
+        String query = prop.getProperty("deleteEmp");
+
+        try {
+            pstmt = con.prepareStatement(query);
+
+            pstmt.setInt(1, empId);
+
+            result = pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            close(pstmt);
+        }
+
+        return result;
+    }
 }

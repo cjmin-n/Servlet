@@ -46,4 +46,9 @@
                 ENT_DATE = ?
          WHERE EMP_ID = ?
     </entry>
+
+    <entry key="deleteEmp">
+        DELETE FROM EMPLOYEE
+              WHERE EMP_ID = ?
+    </entry>
 </properties>

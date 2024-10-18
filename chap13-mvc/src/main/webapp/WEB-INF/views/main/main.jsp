@@ -78,5 +78,10 @@
         <button type="submit">직원 퇴사</button>
     </form>
 
+    <h3>Employee 테이블에서 직원 정보 삭제 /employee/delete</h3>
+    <form action="employee/delete" method="post">
+        사번 : <input type="text" name="empId">
+        <button type="submit">직원 정보 삭제</button>
+    </form>
 </body>
 </html>
